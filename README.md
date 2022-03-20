@@ -1,24 +1,18 @@
-# README
+Rails アプリ上で rack-jekyll を利用して rack アプリとなった Jekyll を mount する
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+気をつけること
+==============
 
-Things you may want to cover:
+ * Rails 側で mount する point と jekyll の baseurl の設定を合わせる
+ * destination は jekyll と rack-jekyll で合わせる
 
-* Ruby version
+試したこと
+==========
 
-* System dependencies
+ * シンプルな rack-jekyll アプリを rackup
+ * Rails の development で無造作に mount
+     * jekyll 側は自動で build が行われる
+     * ログは出力されない
+ * Rails の production で jekyll build 済みの destination を mount
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+development でも production でも問題なく動く。production で jekyll build 済みのサイトだと2倍くらいのスピードが出る。（Apple MacBook Air M1 2020 調べ）
